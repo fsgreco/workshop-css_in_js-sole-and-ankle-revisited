@@ -76,6 +76,24 @@ html {
 html, body, #root {
   height: 100%;
 }
+
+
+/* 
+
+@media (max-width: 37.5rem) {
+
+}
+
+
+@media (max-width: 59.375rem) {
+
+}
+
+@media (max-width: 81.25rem) {
+
+}
+*/
+
 `;
 
 export default GlobalStyles;
