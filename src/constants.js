@@ -18,7 +18,7 @@ export const WEIGHTS = {
 };
 
 // Values in pixels:
-const BREAKPOINTS = {
+export const BREAKPOINTS = {
   phone: 600,
   tablet: 950,
   laptop: 1300,
