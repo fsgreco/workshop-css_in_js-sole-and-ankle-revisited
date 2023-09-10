@@ -58,6 +58,7 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+	overflow: auto;
 
 	@media ${p => p.theme.queries.tablet} {
 		border-top: 4px solid ${COLORS.gray[900]};
@@ -67,8 +68,9 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, 9.2vw - 4.5rem, 3.5rem);
   margin: 0px 48px;
+
 
 	@media ${p => p.theme.queries.tablet} {
 		display: none;
