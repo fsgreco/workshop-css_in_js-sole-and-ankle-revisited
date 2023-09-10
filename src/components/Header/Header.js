@@ -39,7 +39,7 @@ const Header = () => {
 				<MobileActions>
 					<Icon id="shopping-bag" />
 					<Icon id="search" />
-					<Icon id="menu" />
+					<Icon id="menu" style={{cursor:'pointer'}} onClick={() => setShowMobileMenu(true)} />
 				</MobileActions>
         <Side />
       </MainHeader>
