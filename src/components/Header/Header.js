@@ -29,12 +29,12 @@ const Header = () => {
           <Logo />
         </Side>
         <Nav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/sale"><LinkContent>Sale</LinkContent></NavLink>
+          <NavLink href="/new"><LinkContent>New&nbsp;Releases</LinkContent></NavLink>
+          <NavLink href="/men"><LinkContent>Men</LinkContent></NavLink>
+          <NavLink href="/women"><LinkContent>Women</LinkContent></NavLink>
+          <NavLink href="/kids"><LinkContent>Kids</LinkContent></NavLink>
+          <NavLink href="/collections"><LinkContent>Collections</LinkContent></NavLink>
         </Nav>
 				<MobileActions>
 					<Icon id="shopping-bag" />
@@ -94,6 +94,7 @@ const Side = styled.div`
 	}
 `;
 
+
 const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
@@ -104,6 +105,21 @@ const NavLink = styled.a`
   &:first-of-type {
     color: var(--color-secondary);
   }
+
+	&:hover span {
+		font-weight: bold;
+		transform: rotateX(180deg);
+		transition: 
+			transform ease-out 300ms,
+			font-weight ease-in 300ms;
+	}
 `;
+
+const LinkContent = styled.span`
+	display: inline-block;
+	transition: 
+		transform ease-in 400ms,
+		font-size ease-out 400ms;
+`
 
 export default Header;
