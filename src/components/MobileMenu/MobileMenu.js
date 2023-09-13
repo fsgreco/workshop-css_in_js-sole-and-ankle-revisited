@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import styled, { css } from 'styled-components/macro';
+import styled, { css, keyframes } from 'styled-components/macro';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 
 import UnstyledButton from '../UnstyledButton';
@@ -9,11 +9,28 @@ import VisuallyHidden from '../VisuallyHidden';
 import { WEIGHTS } from '../../constants';
 
 
+
+const fadeIn = keyframes`
+	from { opacity: 0; }
+	to { opacity: 1; }
+`
+const slideIn = keyframes`
+	from { transform: translateX(100%) }
+	to { transform: translateX(0%) }
+`
+
 const Overlay = css`
 	position: fixed;
 	inset: 0;
-	background: hsl(0deg 0% 0% / 0.8);
 `
+
+const BackDrop = styled.div`
+	position: absolute;
+  inset: 0;
+	background: hsl(0deg 0% 0% / 0.8);
+  animation: ${fadeIn} 250ms cubic-bezier(.14,.78,.36,1);
+`
+
 const Content = css`
 	background: whitesmoke;
 	width: min(80%, 300px);
@@ -24,6 +41,8 @@ const Content = css`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	animation: ${slideIn} 350ms cubic-bezier(.14,.78,.36,1);
 `
 const fontStyles = css`
 	text-transform: uppercase;
@@ -34,12 +53,16 @@ const fontStyles = css`
 	a { text-decoration: none; color:var(--color-gray-900); }
 `
 const Nav = css`
-	display: flex; flex-direction: column; gap: 1em; margin-right: auto; padding-left: 2em; 
+	display: flex; 
+	flex-direction: column; 
+	gap: 1em; margin-right: auto; padding-left: 2em;
 	${fontStyles};
+	
+	animation: ${fadeIn} 950ms ease-out; 
 `
 
 const Btn = css`
-position:absolute; top:10px; right: 10px; 
+position:absolute; top:25px; right: 30px; 
 `
 const Footer = css`
 	position: absolute;
@@ -58,6 +81,7 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 
   return (
     <DialogOverlay isOpen={isOpen} css={Overlay} >
+			<BackDrop />
 			<DialogContent css={Content}>
 				<UnstyledButton css={Btn} onClick={onDismiss}>
 					<Icon id="close" />

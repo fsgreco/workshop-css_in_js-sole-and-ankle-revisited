@@ -71,15 +71,34 @@ const Link = styled.a`
   color: inherit;
 `;
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+	--radius: 16px 16px 4px 4px;
+`;
 
 const ImageWrapper = styled.div`
   position: relative;
+
+	overflow: hidden;
+	border-radius: var(--radius);
+
+	&:hover > img {
+    transform: scale(1.05); 
+    transition: 
+			transform ease-out 250ms,
+		  filter ease-out 150ms;
+  	filter: brightness(110%);
+	}
 `;
 
 const Image = styled.img`
+	display: block;
   width: 100%;
-  border-radius: 16px 16px 4px 4px;
+  border-radius: var(--radius);
+	isolation: isolate;
+	transition: 
+		transform ease-in 450ms,
+		filter ease-in 750ms;
+
 `;
 
 const Row = styled.div`
