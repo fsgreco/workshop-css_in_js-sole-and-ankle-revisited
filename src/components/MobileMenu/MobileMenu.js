@@ -22,13 +22,14 @@ const slideIn = keyframes`
 const Overlay = css`
 	position: fixed;
 	inset: 0;
+	background-color: transparent;
 `
 
 const BackDrop = styled.div`
 	position: absolute;
   inset: 0;
 	background: hsl(0deg 0% 0% / 0.8);
-  animation: ${fadeIn} 250ms cubic-bezier(.14,.78,.36,1);
+  animation: ${fadeIn} 450ms cubic-bezier(.14,.78,.36,1);
 `
 
 const Content = css`
@@ -42,7 +43,9 @@ const Content = css`
 	justify-content: center;
 	align-items: center;
 
-	animation: ${slideIn} 350ms cubic-bezier(.14,.78,.36,1);
+	/* both is needed for the delay to be effective */
+	animation: ${slideIn} 350ms both cubic-bezier(.14,.78,.36,1);
+	animation-delay: 200ms;
 `
 const fontStyles = css`
 	text-transform: uppercase;
@@ -58,7 +61,8 @@ const Nav = css`
 	gap: 1em; margin-right: auto; padding-left: 2em;
 	${fontStyles};
 	
-	animation: ${fadeIn} 950ms ease-out; 
+	animation: ${fadeIn} 550ms both ease-out; 
+	animation-delay: 400ms;
 `
 
 const Btn = css`
